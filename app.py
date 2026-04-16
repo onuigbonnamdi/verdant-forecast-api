@@ -75,7 +75,7 @@ def merge_weather(demand_df, weather_df):
         demand_df["windspeed_10m"] = 10.0
         demand_df["shortwave_radiation"] = 0.0
         return demand_df
-    demand_df["ds_hour"] = demand_df["ds"].dt.floor("H")
+    demand_df["ds_hour"] = demand_df["ds"].dt.floor("h")
     weather_df = weather_df.rename(columns={"timestamp": "ds_hour"})
     merged = pd.merge_asof(
         demand_df.sort_values("ds_hour"),
