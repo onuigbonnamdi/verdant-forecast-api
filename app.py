@@ -84,7 +84,7 @@ def merge_weather(demand_df, weather_df):
     ).drop(columns=["ds_hour"])
     merged = merged.sort_values("ds").reset_index(drop=True)
     for col in ["temperature_2m", "windspeed_10m", "shortwave_radiation"]:
-        merged[col] = merged[col].fillna(method="ffill").fillna(method="bfill").fillna(0)
+        merged[col] = merged[col].ffill().bfill().fillna(0)
     return merged
 
 def train_and_forecast(demand_df, weather_df, horizon_periods=96):
