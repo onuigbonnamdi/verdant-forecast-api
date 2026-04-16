@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: verdant-forecast-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 1 --timeout 120 --bind 0.0.0.0:$PORT
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+    autoDeploy: true
