@@ -1,4 +1,4 @@
-# Verdant Innovations — Energy Demand Forecast API
+# Evervia Innovations — Energy Demand Forecast API
 
 Prophet-based time-series forecasting API for UK grid demand.
 Pulls live data from Supabase, trains on the fly, returns 24-48hr forecasts.
